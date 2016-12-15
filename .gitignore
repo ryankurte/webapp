@@ -1,4 +1,6 @@
 
 static/
 node_modules/
+
 *.report.html
+*.tgz

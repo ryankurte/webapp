@@ -5,17 +5,21 @@ WEBPACK_ARGS= --progress --profile --colors
 SERVER="http://localhost:8080"
 OUTDIR=static
 
+default: build
+
+dirs:
+	@mkdir -p ${OUTDIR}
 
 install:
 	@echo "Installing dependencies"
 	@npm install
 
-build: clean
+build: clean dirs
 	@echo "Building frontend packages"
 	@./node_modules/webpack/bin/webpack.js  --config webpack.config.js ${WEBPACK_ARGS}
 	@tar -cf webapp.tgz ${OUTDIR}/*
 
-minified: clean
+minified: clean dirs
 	@echo "Building minified frontend packages"
 	@./node_modules/webpack/bin/webpack.js  --config webpack.production.config.js -p ${WEBPACK_ARGS}
 	@tar -cf webapp.min.tgz ${OUTDIR}/*
@@ -30,11 +34,13 @@ serve:
 
 # Run tests
 test:
-	npm test
+	@npm test
 
 lighthouse:
 	@node node_modules/lighthouse/lighthouse-cli/ ${SERVER}
 
+open:
+	@open ${SERVER}
 
 .PHONY: clean
 
