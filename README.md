@@ -6,11 +6,18 @@ An example / attempt at building a [progressive web app](https://developers.goog
 ## Usage
 This depends on nodejs to install/build all the things.
 
+### Development
+
 1. `make install` to install dependencies
 2. `make build` to run webpack and build the app
 3. `make serve` to start a local server
 4. Open the local server in a web browser (or use `make open`)
 
+The local server uses webpack-dev-server so will automatically rebuild the app when changes are detected.
+
+### Deployment
+
+`make minified` builds minified production files
 
 ## Directories
 
