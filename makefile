@@ -2,7 +2,7 @@
 # Packages are managed by npm/bower and compressed using webpack
 
 WEBPACK_ARGS= --progress --profile --colors
-SERVER="http://localhost:8080"
+SERVER="http://localhost:8888"
 OUTDIR=static
 
 default: build
@@ -30,7 +30,7 @@ clean:
 
 # Run a local development server
 serve:
-	@node ./node_modules/node-static/bin/cli.js ${OUTDIR}
+	@node node_modules/webpack-dev-server/bin/webpack-dev-server.js
 
 # Run tests
 test:
