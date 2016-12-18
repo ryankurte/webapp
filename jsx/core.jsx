@@ -7,11 +7,17 @@ import { BrowserHistory } from 'react-history'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
+import Offline from 'offline-plugin/runtime'
+
 import MenuComponent from './menucomponent';
 import LoginComponent from './logincomponent';
 
 // Inject TapEvent for mobile (this will not be required in future versions of react)
 injectTapEventPlugin();
+
+// Install offline app handler
+Offline.install();
+
 
 // Top level app, injects material ui theme
 const App = React.createClass({
