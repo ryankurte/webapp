@@ -7,8 +7,9 @@ import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 import MenuItem from 'material-ui/MenuItem';
 //import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router'
 
-class MyAwesomeReactComponent extends React.Component {
+class MenuComponent extends React.Component {
  
   constructor() {
     super();
@@ -35,21 +36,23 @@ class MyAwesomeReactComponent extends React.Component {
     ];
  
     return (
-      <header>
-        <AppBar title='AppFace' onLeftIconButtonTouchTap={this.handleToggle}
-          />
-      </header>
       <div id="page_container">
-        <Drawer open={this.state.open}
-        docked={false} onEscKeyDown={this.handleClose}>
-          <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
+
+        <header>
+          <AppBar title='AppFace' onLeftIconButtonTouchTap={this.handleToggle}
+            />
+        </header>
+      
+        <Drawer open={this.state.open} docked={false} onEscKeyDown={this.handleClose}>
+          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/about"/>}>Menu Item</MenuItem>
           <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
           <Divider />
           <MenuItem primaryText="Sign out" />
         </Drawer>
+
       </div>
     );
   }
 }
 
-export default MyAwesomeReactComponent;
+export default MenuComponent;
