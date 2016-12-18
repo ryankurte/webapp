@@ -1,68 +1,52 @@
+'use strict';
 
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import AppBar from 'material-ui/AppBar';
-import LeftNav from 'material-ui/LeftNav';
+import Drawer from 'material-ui/Drawer';
+import Divider from 'material-ui/Divider';
 import MenuItem from 'material-ui/MenuItem';
+//import RaisedButton from 'material-ui/RaisedButton';
 
 class MyAwesomeReactComponent extends React.Component {
  
   constructor() {
     super();
- 
-    this._handleClick = this._handleClick.bind(this);
+
+    this.state = {open: false};
+    this.handleToggle = this.handleToggle.bind(this);
+    this.handleClose = this.handleClose.bind(this);
   }
- 
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    };
+
+  handleToggle() {
+    this.setState({open: !this.state.open});
   }
- 
-  _handleClick(e) {
-    e.preventDefault();
- 
-    // Show/Hide the LeftMenu
-    this.refs.leftNav.toggle();
+
+  handleClose() {
+    this.setState({open: false});
   }
  
   render() {
+    // Set menu objects
     var menuItems = [
       { route: 'get-started', text: 'Get Started' },
       { route: 'customization', text: 'Customization' },
       { route: 'components', text: 'Components' },
-      { type: MenuItem.Types.SUBHEADER, text: 'Resources' },
-      {
-         type: MenuItem.Types.LINK,
-         payload: 'https://github.com/callemall/material-ui',
-         text: 'GitHub'
-      },
-      {
-         text: 'Disabled',
-         disabled: true
-      },
-      {
-         type: MenuItem.Types.LINK,
-         payload: 'https://www.google.com',
-         text: 'Disabled Link',
-         disabled: true
-      },
     ];
  
     return (
+      <header>
+        <AppBar title='AppFace' onLeftIconButtonTouchTap={this.handleToggle}
+          />
+      </header>
       <div id="page_container">
- 
-        <LeftNav
-          ref="leftNav"
-          docked={false}
-          menuItems={menuItems} />
- 
-        <header>
-          <AppBar title='ZoomFleet' onLeftIconButtonTouchTap={this._handleClick}
-            isInitiallyOpen={true}
-            />
-        </header>
-         
+        <Drawer open={this.state.open}
+        docked={false} onEscKeyDown={this.handleClose}>
+          <MenuItem onTouchTap={this.handleClose}>Menu Item</MenuItem>
+          <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
+          <Divider />
+          <MenuItem primaryText="Sign out" />
+        </Drawer>
       </div>
     );
   }

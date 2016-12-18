@@ -6,7 +6,7 @@ import { BrowserHistory } from 'react-history'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import MyAwesomeReactComponent from './component';
+import MenuComponent from './component';
 
 // Inject TapEvent for mobile (this will not be required in future versions of react)
 injectTapEventPlugin();
@@ -17,7 +17,7 @@ const App = React.createClass({
   render() {
     return (
       <MuiThemeProvider>
-        <MyAwesomeReactComponent />
+        <MenuComponent />
       </MuiThemeProvider>
     )
   }
