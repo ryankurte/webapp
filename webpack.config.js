@@ -77,11 +77,7 @@ module.exports = {
             template: './html/index.html'
         }),
         new OfflinePlugin({
-            AppCache: false,
-            ServiceWorker: {
-                events: true,
-                entry: './js/worker.js'
-            }
+            AppCache: false
         }),
     ]
 };
