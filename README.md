@@ -4,13 +4,19 @@ An example / attempt at building a [progressive web app](https://developers.goog
 
 
 ## Usage
-This depends on nodejs to install/build all the things.
+
+This depends on nodejs to install/build all the things. A [makefile](makefile) is included providing helpers for common operations.
+
+Webpack configurations are split for [development](webpack.config.js) and [production](webpack.production.config.js).
+
+The web application manifest is included from [manifest.json](manifest.json).
+
 
 ### Development
 
 1. `make install` to install dependencies
 2. `make build` to run webpack and build the app
-3. `make serve` to start a local server
+3. `make serve` to start a local development server
 4. Open the local server in a web browser (or use `make open`)
 
 The local server uses webpack-dev-server so will automatically rebuild the app when changes are detected.
@@ -21,8 +27,7 @@ The local server uses webpack-dev-server so will automatically rebuild the app w
 
 ## Directories
 
-- [html](/html) contains html resources
-- [jsx](/jsx) contains jsx source files (react components)
-- [js](/js) contains raw js source files
+- [html](/html) contains html source files
+- [jsx](/jsx) contains jsx source files
 
 

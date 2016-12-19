@@ -1,5 +1,5 @@
 {
-  "name": "app",
+  "name": "webapp",
   "version": "0.1.0",
   "description": "React Progressive Webapp",
   "main": "index.js",
@@ -56,7 +56,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ryankurte/authplz.git"
+    "url": "git+https://github.com/ryankurte/webapp.git"
   },
   "author": "Ryan Kurte",
   "license": "MIT"
