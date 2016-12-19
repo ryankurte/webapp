@@ -9,7 +9,7 @@ var WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 // local css modules
 loaders.push({
     test: /[\/\\]src[\/\\].*\.css/,
-    exclude: /(node_modules|bower_components|public)/,
+    exclude: /(node_modules|bower_components|public|flexboxgrid)/,
     loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
 });
 
@@ -21,7 +21,7 @@ loaders.push({
 });
 // global css files
 loaders.push({
-    test: /[\/\\](node_modules|global)[\/\\].*\.css$/,
+    test: /[\/\\](node_modules|global|flexboxgrid)[\/\\].*\.css$/,
     loader: ExtractTextPlugin.extract('style', 'css')
 });
 

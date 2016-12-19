@@ -13,7 +13,7 @@ const PORT = process.env.PORT || "8888";
 // global css
 loaders.push({
     test: /\.css$/,
-    exclude: /[\/\\]src[\/\\]/,
+    exclude: /[\/\\](src|flexboxgrid)[\/\\]/,
     loaders: [
         'style?sourceMap',
         'css'
@@ -22,7 +22,7 @@ loaders.push({
 // local scss modules
 loaders.push({
     test: /\.scss$/,
-    exclude: /[\/\\](node_modules|bower_components|static)[\/\\]/,
+    exclude: /[\/\\](node_modules|bower_components|static|flexboxgrid)[\/\\]/,
     loaders: [
         'style?sourceMap',
         'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
@@ -34,7 +34,7 @@ loaders.push({
 // local css modules
 loaders.push({
     test: /\.css$/,
-    exclude: /[\/\\](node_modules|bower_components|static)[\/\\]/,
+    exclude: /[\/\\](node_modules|bower_components|static|flexboxgrid)[\/\\]/,
     loaders: [
         'style?sourceMap',
         'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
@@ -76,6 +76,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './html/index.html'
         }),
-        new OfflinePlugin(),
+        new OfflinePlugin({
+            ServiceWorker: {
+                entry: './js/worker.js'
+            }
+        }),
     ]
 };

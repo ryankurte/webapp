@@ -6,7 +6,8 @@ module.exports = [
     },
     { 
         test: /\.css$/, 
-        loader: "style-loader!css-loader" 
+        loader: "style-loader!css-loader",
+        exclude: /flexboxgrid/
     },
     {
         test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
@@ -50,5 +51,10 @@ module.exports = [
     { 
         test: /js\/.+\.(js)$/,
         loader: 'imports?this=>window'
+    },
+    {
+        test: /\.css$/,
+        loader: 'style!css?modules',
+        include: /flexboxgrid/,
     }
 ];
