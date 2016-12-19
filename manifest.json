@@ -1,0 +1,8 @@
+{
+  "short_name": "WebApp",
+  "name": "React Progressive WebApp",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "red"
+}

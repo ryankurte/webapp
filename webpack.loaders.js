@@ -56,5 +56,9 @@ module.exports = [
         test: /\.css$/,
         loader: 'style!css?modules',
         include: /flexboxgrid/,
-    }
+    },
+    {
+        test: /manifest.json/,
+        loader: "file-loader?name=manifest.json"
+    },
 ];

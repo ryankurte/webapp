@@ -78,7 +78,7 @@ module.exports = {
         }),
         new OfflinePlugin({
             ServiceWorker: {
-                entry: './js/worker.js'
+                events: true
             }
         }),
     ]
