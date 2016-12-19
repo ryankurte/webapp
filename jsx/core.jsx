@@ -7,7 +7,7 @@ import { BrowserHistory } from 'react-history'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Runtime from 'offline-plugin/runtime'
+import Runtime from 'offline-plugin/runtime';
 
 import MenuComponent from './menucomponent';
 import LoginComponent from './logincomponent';

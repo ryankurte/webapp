@@ -32,6 +32,9 @@ clean:
 serve:
 	@node node_modules/webpack-dev-server/bin/webpack-dev-server.js
 
+serve-static:
+	@node node_modules/node-static/bin/cli.js ${OUTDIR}
+
 # Run tests
 test:
 	@npm test
@@ -42,5 +45,5 @@ lighthouse:
 open:
 	@open ${SERVER}
 
-.PHONY: clean
+.PHONY: clean serve
 
