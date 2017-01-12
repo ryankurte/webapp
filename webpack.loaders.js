@@ -1,8 +1,13 @@
 module.exports = [
     {
+        test: /\.json$/,
+        exclude: /(manifest.json|static)/,
+        loader: 'json-loader'
+    },
+    {
         test: /\.(jsx|js)?$/,
         exclude: /(node_modules|bower_components|public|static)/,
-        loader: "babel"
+        loader: 'babel-loader'
     },
     { 
         test: /\.css$/, 
@@ -61,4 +66,8 @@ module.exports = [
         test: /manifest.json/,
         loader: "file-loader?name=manifest.json"
     },
+    {
+        test: /mapbox-gl.+\.js$/,
+        loader: 'transform/cacheable?brfs'
+    }
 ];

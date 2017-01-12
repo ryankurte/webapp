@@ -11,6 +11,7 @@ import Runtime from 'offline-plugin/runtime';
 
 import MenuComponent from './menucomponent';
 import LoginComponent from './logincomponent';
+import MapComponent from './components/map';
 
 import Manifest from '../manifest.json';
 
@@ -65,6 +66,7 @@ render((
   <MuiThemeProvider>
   <Router history={hashHistory}>
     <Route path="/" component={App}>
+      <Route path="/map" component={MapComponent} />
       <Route path="/about" component={About} />
     </Route>
     <Route path="/login" component={LoginComponent} />
