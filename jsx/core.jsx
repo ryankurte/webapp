@@ -9,8 +9,7 @@ import window from 'global/window';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-//import Runtime from 'offline-plugin/runtime';
-//import WebWorkify from 'webworkify-webpack';
+import Runtime from 'offline-plugin/runtime';
 
 import MenuComponent from './menucomponent';
 import LoginComponent from './logincomponent';
@@ -21,7 +20,6 @@ import Manifest from '../manifest.json';
 // Inject TapEvent for mobile (this will not be required in future versions of react)
 injectTapEventPlugin();
 
-/*
 // Install offline app handler
 Runtime.install({
   onUpdating: () => {
@@ -42,9 +40,8 @@ Runtime.install({
     console.log('SW Event:', 'onUpdateFailed');
   }
 });
-*/
 
-// Top level app, injects material ui theme
+// Top level app
 const App = React.createClass({
   render() {
     return (

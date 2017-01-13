@@ -86,6 +86,9 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './html/index.html'
+        }),
+        new OfflinePlugin({
+            AppCache: false
         })
     ],
     node: {
