@@ -4,10 +4,13 @@ import { render } from 'react-dom'
 import { Router, Route, Link, IndexRoute, hashHistory } from 'react-router'
 import { BrowserHistory } from 'react-history'
 
+import window from 'global/window';
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
-import Runtime from 'offline-plugin/runtime';
+//import Runtime from 'offline-plugin/runtime';
+//import WebWorkify from 'webworkify-webpack';
 
 import MenuComponent from './menucomponent';
 import LoginComponent from './logincomponent';
@@ -18,6 +21,7 @@ import Manifest from '../manifest.json';
 // Inject TapEvent for mobile (this will not be required in future versions of react)
 injectTapEventPlugin();
 
+/*
 // Install offline app handler
 Runtime.install({
   onUpdating: () => {
@@ -38,7 +42,7 @@ Runtime.install({
     console.log('SW Event:', 'onUpdateFailed');
   }
 });
-
+*/
 
 // Top level app, injects material ui theme
 const App = React.createClass({
@@ -66,7 +70,7 @@ render((
   <MuiThemeProvider>
   <Router history={hashHistory}>
     <Route path="/" component={App}>
-      <Route path="/map" component={MapComponent} />
+      <Route path="/map" component={MapComponent} width={100} height={100}/>
       <Route path="/about" component={About} />
     </Route>
     <Route path="/login" component={LoginComponent} />

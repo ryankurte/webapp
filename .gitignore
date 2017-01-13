@@ -4,3 +4,4 @@ node_modules/
 
 *.report.html
 *.tgz
+env.sh

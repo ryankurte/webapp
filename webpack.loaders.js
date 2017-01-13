@@ -54,7 +54,7 @@ module.exports = [
         loader: 'imports?jQuery=jquery,$=jquery,this=>window'
     },
     { 
-        test: /js\/.+\.(js)$/,
+        test: /js\/.+\.(js|jsx)$/,
         loader: 'imports?this=>window'
     },
     {

@@ -1,22 +1,26 @@
+'use strict';
+
+import React, {PropTypes} from 'react';
+
 import window from 'global/window';
 const windowAlert = window.alert;
 
-import React, {PropTypes, Component} from 'react';
 import autobind from 'autobind-decorator';
 import {scaleOrdinal, schemeCategory10} from 'd3-scale';
 import {rgb} from 'd3-color';
 
 import MapGL, {SVGOverlay, CanvasOverlay} from 'react-map-gl';
-//import alphaify from 'alphaify';
-
+import alphaify from 'alphaify';
 
 const color = scaleOrdinal(schemeCategory10);
 
-class MapComponent extends Component {
+const token = "pk.eyJ1Ijoicnlhbmt1cnRlIiwiYSI6ImNpd3ExNWlmMzAwNnoyem84djN0djlnb3kifQ.6is1bfUHgRNMWhgzrcUh5w"
+
+class MapComponent extends React.Component {
 
   static propTypes = {
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired
+    //width: PropTypes.number.isRequired,
+    //height: PropTypes.number.isRequired
   };
 
   constructor(props) {
@@ -28,8 +32,16 @@ class MapComponent extends Component {
         zoom: 12.011557070552028,
         startDragLngLat: null,
         isDragging: false
-      }
+      },
+      width: 100,
+      height: 100,
+      mapboxApiAccessToken: token
     };
+  }
+
+  @autobind componentDidMount() {
+    this.setState({height:window.innerHeight});
+    this.setState({width:window.innerWidth});
   }
 
   @autobind
@@ -45,7 +57,8 @@ class MapComponent extends Component {
   render() {
     const viewport = {
       ...this.state.viewport,
-      ...this.props
+      ...this.props,
+      ...this.state
     };
     return (
       <MapGL { ...viewport } onChangeViewport={ this._onChangeViewport }>

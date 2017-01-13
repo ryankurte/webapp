@@ -4,6 +4,7 @@
   "description": "React Progressive Webapp",
   "main": "index.js",
   "dependencies": {
+    "alphaify": "git+https://github.com/ibgreen/alphaify.git",
     "babel-cli": "^6.18.0",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.7",
@@ -51,7 +52,9 @@
     "url-loader": "^0.5.7",
     "validator": "^6.2.1",
     "webpack": "^1.13.3",
-    "webpack-cleanup-plugin": "^0.4.1"
+    "webpack-cleanup-plugin": "^0.4.1",
+    "webworkify-webpack": "^2.0.1",
+    "webworkify-webpack-dropin": "^1.1.9"
   },
   "devDependencies": {
     "awesome-typescript-loader": "^3.0.0-beta.18",

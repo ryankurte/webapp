@@ -1,7 +1,8 @@
-
 "use strict";
+
 var webpack = require('webpack');
 var path = require('path');
+const {resolve} = require('path');
 var loaders = require('./webpack.loaders');
 
 var HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -44,7 +45,7 @@ loaders.push({
 module.exports = {
     entry: [
         'react-hot-loader/patch',
-        './jsx/core.jsx' // your app's entry point
+        './jsx/core.jsx'
     ],
     devtool: process.env.WEBPACK_DEVTOOL || 'cheap-module-source-map',
     output: {
@@ -52,10 +53,20 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: ['', '.js', '.jsx']
+        extensions: ['', '.js', '.jsx'],
+        alias: {
+          webworkify: 'webworkify-webpack-dropin',
+         'gl-matrix': resolve('./node_modules/gl-matrix/dist/gl-matrix.js')
+        },
     },
     module: {
-        loaders
+        loaders: loaders,
+        postLoaders: [{
+          include: /node_modules\/mapbox-gl/,
+          loader: 'transform-loader',
+          query: 'brfs',
+        }],
+
     },
     devServer: {
         contentBase: "./static",
@@ -75,9 +86,10 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './html/index.html'
-        }),
-        new OfflinePlugin({
-            AppCache: false
-        }),
-    ]
+        })
+    ],
+    node: {
+        fs: 'empty',
+    },
+
 };
