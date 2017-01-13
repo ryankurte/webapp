@@ -9,6 +9,10 @@ module.exports = [
         exclude: /(node_modules|bower_components|public|static)/,
         loader: 'babel-loader'
     },
+    {
+        test: /mapbox-gl\.(jsx|js)?$/,
+        loader: 'babel-loader'
+    },
     { 
         test: /\.css$/, 
         loader: "style-loader!css-loader",
@@ -53,10 +57,6 @@ module.exports = [
         test: /bootstrap\/.+\.(jsx|js)$/,
         loader: 'imports?jQuery=jquery,$=jquery,this=>window'
     },
-    { 
-        test: /js\/.+\.(js|jsx)$/,
-        loader: 'imports?this=>window'
-    },
     {
         test: /\.css$/,
         loader: 'style!css?modules',
@@ -65,9 +65,5 @@ module.exports = [
     {
         test: /manifest.json/,
         loader: "file-loader?name=manifest.json"
-    },
-    {
-        test: /mapbox-gl.+\.js$/,
-        loader: 'transform/cacheable?brfs'
     }
 ];

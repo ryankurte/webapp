@@ -42,6 +42,14 @@ class MapComponent extends React.Component {
   @autobind componentDidMount() {
     this.setState({height:window.innerHeight});
     this.setState({width:window.innerWidth});
+    window.addEventListener('resize', this._onWindowResize);
+  }
+
+  @autobind _onWindowResize() {
+    this.setState({
+      width: window.innerWidth,
+      height: window.innerHeight
+    });
   }
 
   @autobind
