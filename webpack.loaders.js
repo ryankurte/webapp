@@ -10,7 +10,7 @@ module.exports = [
         loader: 'babel-loader'
     },
     {
-        test: /mapbox-gl\.(jsx|js)?$/,
+        test: /node_modules\/mapbox-gl\/\?\.(jsx|js)?$/,
         loader: 'babel-loader'
     },
     { 

@@ -36,15 +36,15 @@ class MenuComponent extends React.Component {
     ];
  
     return (
-      <div id="page_container">
+      <div>
 
         <header>
-          <AppBar title='AppFace' onLeftIconButtonTouchTap={this.handleToggle}
-            />
+          <AppBar title='AppFace' onLeftIconButtonTouchTap={this.handleToggle}/>
         </header>
       
         <Drawer open={this.state.open} docked={false} onEscKeyDown={this.handleClose}>
-          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/about"/>}>Menu Item</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/map"/>}>Map</MenuItem>
+          <MenuItem onTouchTap={this.handleClose} containerElement={<Link to="/about"/>}>About</MenuItem>
           <MenuItem onTouchTap={this.handleClose}>Menu Item 2</MenuItem>
           <Divider />
           <MenuItem primaryText="Sign out" />
